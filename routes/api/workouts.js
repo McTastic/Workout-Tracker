@@ -23,7 +23,7 @@ router.post("/api/workouts/bulk", ({ body }, res) => {
 
 router.get("/api/workouts", (req, res) => {
   Workout.find({})
-    .sort({ date: -1 })
+    // .sort({ date: -1 })
     .then((dbWorkouts) => {
       res.json(dbWorkouts);
     })
