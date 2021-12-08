@@ -1,31 +1,41 @@
 const router = require("express").Router();
 const Workout = require("../../models/workoutModel");
 
-router.post("/api/workouts", ({ body }, res) => {
+router.post("/", ({ body }, res) => {
   Workout.create(body)
-    .then((dbWorkouts) => {
-      res.json(dbWorkouts);
+    .then((dbWorkout) => {
+      res.json(dbWorkout);
     })
     .catch((err) => {
       res.status(400).json(err);
     });
 });
 
-router.post("/api/workouts/bulk", ({ body }, res) => {
+router.post("/bulk", ({ body }, res) => {
   Workout.insertMany(body)
-    .then((dbWorkouts) => {
-      res.json(dbWorkouts);
+    .then((dbWorkout) => {
+      res.json(dbWorkout);
     })
     .catch((err) => {
       res.status(400).json(err);
     });
 });
 
-router.get("/api/workouts", (req, res) => {
+router.put("/:id", async ({ body }, res) => {
+  try {
+    const dbWorkout = await Workout.find(body);
+    console.log(dbWorkout);
+    res.json(dbWorkout);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+router.get("/", (req, res) => {
   Workout.find({})
     // .sort({ date: -1 })
-    .then((dbWorkouts) => {
-      res.json(dbWorkouts);
+    .then((dbWorkout) => {
+      res.json(dbWorkout);
     })
     .catch((err) => {
       res.status(400).json(err);
