@@ -11,17 +11,26 @@ router.post("/", ({ body }, res) => {
     });
 });
 
-router.post("/bulk", ({ body }, res) => {
-  Workout.insertMany(body)
+// router.post("/bulk", ({ body }, res) => {
+//   Workout.insertMany(body)
+//     .then((dbWorkout) => {
+//       res.json(dbWorkout);
+//     })
+//     .catch((err) => {
+//       res.status(400).json(err);
+//     });
+// });
+router.get("/range", (req, res) => {
+  db.Workout.find({})
     .then((dbWorkout) => {
       res.json(dbWorkout);
     })
     .catch((err) => {
-      res.status(400).json(err);
+      res.json(err);
     });
 });
 
-router.put("/:id", async ({ body }, res) => {
+router.put("/:id", async (req, res) => {
   try {
     const dbWorkout = await Workout.find(body);
     console.log(dbWorkout);
