@@ -21,7 +21,7 @@ router.post("/", ({ body }, res) => {
 //     });
 // });
 router.get("/range", (req, res) => {
-  db.Workout.find({})
+  Workout.find({})
     .then((dbWorkout) => {
       res.json(dbWorkout);
     })
