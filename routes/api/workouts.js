@@ -30,7 +30,7 @@ router.get("/range", (req, res) => {
     });
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", async ({ body }, res) => {
   try {
     const dbWorkout = await Workout.find(body);
     console.log(dbWorkout);
