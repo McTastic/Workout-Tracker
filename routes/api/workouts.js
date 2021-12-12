@@ -30,7 +30,7 @@ router.get("/range", (req, res) => {
     });
 });
 
-router.put("/:id", async ({ body }, res) => {
+router.put("/:id", ({ body }, res) => {
   Workout.findOneAndUpdate(
     { _id: req.params.id },
     {
