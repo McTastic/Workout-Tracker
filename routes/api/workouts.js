@@ -51,6 +51,13 @@ router.get("/", (req, res) => {
   Workout.find({})
     // .sort({ date: -1 })
     .then((dbWorkout) => {
+      dbWorkout.forEach((workout) => {
+        let total = 0;
+        workout.exercises.forEach((e) => {
+          total += e.duration;
+        });
+        workout.totalDuration = total;
+      });
       res.json(dbWorkout);
     })
     .catch((err) => {
