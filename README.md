@@ -8,6 +8,8 @@
 - [Usage](#usage)
 - [Additional Info](#additional-info)
 
+![demo screenshot](./images/demo-screenshot.png)
+
 ## Site Link:
 
 - [Click Here](https://damp-oasis-83805.herokuapp.com/)
