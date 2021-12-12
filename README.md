@@ -22,7 +22,7 @@ This website utilizes MongoDB (Mongoose) to track a user's workouts. You are abl
 
 To get started, simply click on the "New Workout" button on the homepage. On the following page, you will see a drop-down menu where you are able to select either cardio or resistance workouts. Once selected, you will be prompted to enter information about the workout and then you can save the exercise or comlpleete the workout if this is being continued.
 
-Once a workout has been added, the homepage will display the date of the last workout, the duration of the workout and how many exercises were performed. At the top, left-hand corner of the page, you are able to click the "Fitness Tracker" link which will display a graph of workout history.
+Once a workout has been added, the homepage will display the date of the last workout, the duration of the workout and how many exercises were performed. At the top, left-hand corner of the page, you are able to click the "Dashboard" link which will display a graph of workout history.
 
 ## Additional Info:
 
