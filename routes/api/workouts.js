@@ -31,13 +31,20 @@ router.get("/range", (req, res) => {
 });
 
 router.put("/:id", async ({ body }, res) => {
-  try {
-    const dbWorkout = await Workout.find(body);
-    console.log(dbWorkout);
-    res.json(dbWorkout);
-  } catch (err) {
-    console.log(err);
-  }
+  Workout.findOneAndUpdate(
+    { _id: req.params.id },
+    {
+      $inc: { totalDuration: req.body.duration },
+      $push: { exercises: req.body },
+    },
+    { new: true }
+  )
+    .then((dbWorkout) => {
+      res.json(dbWorkout);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
 });
 
 router.get("/", (req, res) => {
